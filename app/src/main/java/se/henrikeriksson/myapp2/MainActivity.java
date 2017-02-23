@@ -28,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
     public void onClick2(MenuItem mi) {
-        Intent i = new Intent(getApplicationContext(), GraphActivity.class);
-        startActivity(i);
+        startActivity(new Intent(getApplicationContext(), GraphActivity.class));
     }
 
 
@@ -68,8 +67,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
 
 
-        String resp = null;
-        RequestParams rp = new RequestParams(resp);
+        RequestParams rp = new RequestParams();
 
         HttpUtils.get("subdomain/weather/tempapp.json", rp, new JsonHttpResponseHandler() {
             @Override
