@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFFFFF"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="se.henrikeriksson.myapp2.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <LinearLayout
+        android:id="@+id/textViewAndButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+    <TextView
+        android:id="@+id/myAwesomeTextView"
+        android:textSize="64sp"
+        android:textColor="#0040ff"
+         android:layout_width="wrap_content"
+        android:layout_height="100dip"
+         />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+    <ImageButton
+        android:id="@+id/reloadbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="100dip"
+        android:src="@drawable/reload"
+        android:background="#FFFFFF"
+        android:onClick="onClick" />
+
+    />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/max"
+        android:layout_below="@+id/textViewAndButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/min"
+        android:layout_below="@+id/max" />
+
+    <!--<Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="@dimen/fab_margin"
+        android:text="Uppdatera temperatur"
+        android:layout_toRightOf="@id/myAwesomeTextView"
+        android:onClick="onClick" />-->
+
+    <View
+        android:id="@+id/space"
+        android:layout_width="0dp"
+        android:layout_height="50dip"
+        android:layout_weight="1"
+        android:layout_below="@+id/min" />
+        />
+
+   <!-- <com.jjoe64.graphview.GraphView
+        android:layout_width="wrap_content"
+        android:layout_height="200dip"
+        android:id="@+id/graph"
+        android:layout_below="@+id/space" />
+        />-->
+
+
+
+
+</RelativeLayout>
