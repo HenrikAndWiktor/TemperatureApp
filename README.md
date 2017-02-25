@@ -1,2 +1,2 @@
 #Tempapp
-Just a app.
+Just a normal temperature app (Swedish).
