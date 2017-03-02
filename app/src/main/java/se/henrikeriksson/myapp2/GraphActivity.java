@@ -62,7 +62,7 @@ public class GraphActivity extends AppCompatActivity {
                         String temp1 = arr.getJSONArray(i).getString(1);
 
                         try {
-                            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd");
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
                             Date parse = sdf.parse(date);
                             Calendar c = Calendar.getInstance();
                             c.setTime(parse);
