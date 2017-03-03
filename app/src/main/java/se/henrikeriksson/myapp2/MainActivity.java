@@ -22,7 +22,6 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
     ProgressDialog dialog;
     TextView myAwesomeTextView, max, min;
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
@@ -33,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

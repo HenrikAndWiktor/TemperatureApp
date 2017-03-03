@@ -27,14 +27,12 @@ import cz.msebera.android.httpclient.Header;
 public class GraphActivity extends AppCompatActivity {
     GraphView graph;
 
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_graph, menu);
         return true;
     }
 
 
-    @Override
     protected void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(R.layout.activity_graph);
