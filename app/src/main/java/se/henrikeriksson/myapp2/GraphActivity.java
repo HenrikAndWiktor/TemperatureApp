@@ -1,5 +1,6 @@
 package se.henrikeriksson.myapp2;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -26,7 +27,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class GraphActivity extends AppCompatActivity {
     GraphView graph;
-
+    Context c = getApplicationContext();
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_graph, menu);
         return true;
@@ -60,7 +61,7 @@ public class GraphActivity extends AppCompatActivity {
                         String temp1 = arr.getJSONArray(i).getString(1);
 
                         try {
-                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
+                            SimpleDateFormat sdf = (SimpleDateFormat)SimpleDateFormat.getDateInstance(SimpleDateFormat.DAY_OF_WEEK_IN_MONTH_FIELD);
                             Date parse = sdf.parse(date);
                             Calendar c = Calendar.getInstance();
                             c.setTime(parse);
@@ -69,8 +70,8 @@ public class GraphActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                    graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getApplicationContext()));
-                    LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(dataPoints);
+                    graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(c));
+                    LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
                     graph.addSeries(series);
                 } catch (JSONException json) {
                     json.printStackTrace();
