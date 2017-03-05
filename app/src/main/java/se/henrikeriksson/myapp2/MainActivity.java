@@ -22,7 +22,7 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
     ProgressDialog dialog;
-    Context c = getApplicationContext();
+    Context c;
     TextView myAwesomeTextView, max, min;
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     protected void onCreate(Bundle savedInstanceState) {
+        c=getApplicationContext();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
