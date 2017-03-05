@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
     public void onClick2(MenuItem mi) {
-        startActivity(new Intent(c, GraphActivity.class));
+        startActivity(new Intent(getApplicationContext(), GraphActivity.class));
     }
 
 
@@ -58,8 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     
     private void updateTemp() {
-        c=getApplicationContext();
-        dialog = new ProgressDialog(c);
+        dialog = new ProgressDialog(getApplicationContext());
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setMessage("Loading. Please wait...");
         dialog.setIndeterminate(true);
