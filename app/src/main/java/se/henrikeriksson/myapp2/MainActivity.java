@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         max = (TextView)findViewById(R.id.max);
         min = (TextView)findViewById(R.id.min);
         myAwesomeTextView = (TextView)findViewById(R.id.myAwesomeTextView);
-        c=getApplicationContext();
 
 
         updateTemp();
@@ -59,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     
     private void updateTemp() {
+        c=getApplicationContext();
         dialog = new ProgressDialog(c);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setMessage("Loading. Please wait...");
