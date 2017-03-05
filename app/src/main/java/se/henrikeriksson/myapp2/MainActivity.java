@@ -35,14 +35,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     protected void onCreate(Bundle savedInstanceState) {
-        c=getApplicationContext();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
         max = (TextView)findViewById(R.id.max);
         min = (TextView)findViewById(R.id.min);
         myAwesomeTextView = (TextView)findViewById(R.id.myAwesomeTextView);
-
+        c=getApplicationContext();
 
 
         updateTemp();
