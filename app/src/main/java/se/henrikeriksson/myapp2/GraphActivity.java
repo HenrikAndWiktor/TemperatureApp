@@ -61,11 +61,9 @@ public class GraphActivity extends AppCompatActivity {
                         String temp1 = arr.getJSONArray(i).getString(1);
 
                         try {
-<<<<<<< HEAD
+
                             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-=======
-                            SimpleDateFormat sdf = (SimpleDateFormat)SimpleDateFormat.getDateInstance(SimpleDateFormat.DAY_OF_WEEK_IN_MONTH_FIELD);
->>>>>>> 2b718e83e242e042b78b1731a8f05c6b60a92bb6
+
                             Date parse = sdf.parse(date);
                             Calendar c = Calendar.getInstance();
                             c.setTime(parse);
