@@ -21,8 +21,6 @@ import org.json.JSONObject;
 
 
 public class MainActivity extends AppCompatActivity {
-    ProgressDialog dialog;
-    Context c;
     TextView myAwesomeTextView, max, min;
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     
     private void updateTemp() {
-        dialog = new ProgressDialog(getApplicationContext());
+        final ProgressDialog dialog = new ProgressDialog(getApplicationContext());
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setMessage("Loading. Please wait...");
         dialog.setIndeterminate(true);
