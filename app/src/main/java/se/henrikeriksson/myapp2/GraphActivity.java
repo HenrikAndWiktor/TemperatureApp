@@ -1,5 +1,6 @@
 package se.henrikeriksson.myapp2;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -26,15 +27,13 @@ import cz.msebera.android.httpclient.Header;
 
 public class GraphActivity extends AppCompatActivity {
     GraphView graph;
-
-    @Override
+    Context c = getApplicationContext();
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_graph, menu);
         return true;
     }
 
 
-    @Override
     protected void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(R.layout.activity_graph);
@@ -62,7 +61,11 @@ public class GraphActivity extends AppCompatActivity {
                         String temp1 = arr.getJSONArray(i).getString(1);
 
                         try {
+<<<<<<< HEAD
                             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+=======
+                            SimpleDateFormat sdf = (SimpleDateFormat)SimpleDateFormat.getDateInstance(SimpleDateFormat.DAY_OF_WEEK_IN_MONTH_FIELD);
+>>>>>>> 2b718e83e242e042b78b1731a8f05c6b60a92bb6
                             Date parse = sdf.parse(date);
                             Calendar c = Calendar.getInstance();
                             c.setTime(parse);
@@ -71,8 +74,8 @@ public class GraphActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                    graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getApplicationContext()));
-                    LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(dataPoints);
+                    graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(c));
+                    LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
                     graph.addSeries(series);
                 } catch (JSONException json) {
                     json.printStackTrace();

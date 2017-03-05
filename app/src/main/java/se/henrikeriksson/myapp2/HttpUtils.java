@@ -1,6 +1,8 @@
 package se.henrikeriksson.myapp2;
 import com.loopj.android.http.*;
 
+import java.net.URL;
+
 class HttpUtils {
         //private static final String BASE_URL = "http://wiktoreriksson.se/subdomain/weather/tempapp.json";
 
@@ -24,6 +26,13 @@ class HttpUtils {
         static void postByUrl(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
             client.post(url, params, responseHandler);
         }
+    static void getByUrl(java.net.URL url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
+        getByUrl(url.getPath(), params, responseHandler);
+    }
+
+    static void postByUrl(URL url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
+        postByUrl(url.getPath(), params, responseHandler);
+    }
     public static void put(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
         client.put(getAbsoluteUrl(url), params, responseHandler);
     }

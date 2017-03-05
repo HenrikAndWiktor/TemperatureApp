@@ -1,6 +1,7 @@
 package se.henrikeriksson.myapp2;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,19 +22,18 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
     ProgressDialog dialog;
+    Context c = getApplicationContext();
     TextView myAwesomeTextView, max, min;
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
     public void onClick2(MenuItem mi) {
-        startActivity(new Intent(getApplicationContext(), GraphActivity.class));
+        startActivity(new Intent(c, GraphActivity.class));
     }
 
 
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     
     private void updateTemp() {
-        dialog = new ProgressDialog(this); // this = YourActivity
+        dialog = new ProgressDialog(c);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setMessage("Loading. Please wait...");
         dialog.setIndeterminate(true);
@@ -78,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     JSONObject serverResp = new JSONObject(response.toString());
                     myAwesomeTextView = (TextView)findViewById(R.id.myAwesomeTextView);
-                    myAwesomeTextView.setText(serverResp.getString("temperature")+"°C");
+                    String temp = serverResp.getString("temperature")+"°C";
+                    myAwesomeTextView.setText(temp);
                     String maxvalue = "Högst idag: " + serverResp.getString("max")+ "°C";
                     String minvalue = "Lägst idag: " + serverResp.getString("min")+ "°C";
                     max.setText(maxvalue);
