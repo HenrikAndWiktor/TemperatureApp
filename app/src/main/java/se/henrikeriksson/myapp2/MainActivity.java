@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     
     private void updateTemp() {
-        final ProgressDialog dialog = new ProgressDialog(getApplicationContext());
+        final ProgressDialog dialog = new ProgressDialog(this);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setMessage("Loading. Please wait...");
         dialog.setIndeterminate(true);

@@ -27,7 +27,6 @@ import cz.msebera.android.httpclient.Header;
 
 public class GraphActivity extends AppCompatActivity {
     GraphView graph;
-    Context c = getApplicationContext();
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_graph, menu);
         return true;
@@ -72,7 +71,7 @@ public class GraphActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                    graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(c));
+                    graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getApplicationContext()));
                     LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
                     graph.addSeries(series);
                 } catch (JSONException json) {
