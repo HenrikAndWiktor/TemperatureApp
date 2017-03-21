@@ -21,15 +21,13 @@ import org.json.JSONObject;
 
 
 public class MainActivity extends AppCompatActivity {
-    ProgressDialog dialog;
-    Context c = getApplicationContext();
     TextView myAwesomeTextView, max, min;
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
     public void onClick2(MenuItem mi) {
-        startActivity(new Intent(c, GraphActivity.class));
+        startActivity(new Intent(getApplicationContext(), GraphActivity.class));
     }
 
 
@@ -41,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         max = (TextView)findViewById(R.id.max);
         min = (TextView)findViewById(R.id.min);
         myAwesomeTextView = (TextView)findViewById(R.id.myAwesomeTextView);
-
 
 
         updateTemp();
@@ -59,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     
     private void updateTemp() {
-        dialog = new ProgressDialog(c);
+        final ProgressDialog dialog = new ProgressDialog(this);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setMessage("Loading. Please wait...");
         dialog.setIndeterminate(true);
