@@ -55,7 +55,7 @@ public class GraphActivity extends AppCompatActivity {
                     JSONObject serverResp = new JSONObject(response.toString());
                     JSONArray arr = serverResp.getJSONArray("graph");
                     DataPoint[] dataPoints = new DataPoint[arr.length()];
-                    for (int i = arr.length(); i > arr.length()-5; i--) {
+                    for (int i = arr.length()-1; i > arr.length()-6; i--) {
                         String date = arr.getJSONArray(i).getString(0);
                         String temp1 = arr.getJSONArray(i).getString(1);
 
